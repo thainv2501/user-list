@@ -3,9 +3,9 @@ import UserList from "./UserList";
 
 class App extends Component {
   state = {
-    users: [], 
+    users: [],
   };
-// active when call this component to load data from api, i put it hear to just take data one time, this api is random so every time touch this component change the data ==> i dont want that 
+  // active when call this component to load data from api, i put it hear to just take data one time, this api is random so every time touch this component change the data ==> i dont want that
   componentDidMount() {
     const results = "100"; // take 100  users as you want
     const requestURL = `https://randomuser.me/api/?results=${results}`;
@@ -26,7 +26,7 @@ class App extends Component {
           </h2>
         </header>
         {/* give data for userList */}
-        <UserList users={this.state.users} /> 
+        <UserList users={this.state.users} />
       </React.Fragment>
     );
   }
