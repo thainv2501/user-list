@@ -60,15 +60,25 @@ const App = () => {
 
   const handlePagination = (event) => {
     setCurrentPage(event.target.value);
+    usersInPage();
+  };
+
+  const usersInPage = () => {
     const indexOfLastUser = currentPage * usersPerPage; //example : current page is 2 ==> last users is 2*10 (10 set up in state) = 20
     const indexOfFirstUser = indexOfLastUser - usersPerPage; //example : current page is 2 ==> the first index user in this page is 20 - 10 = 10
     //use slice to cut a slice from total users take ==> we have a slice of current user in this page
     // also sort if have sort value from option
     // else do nothing
     setCurrentUsers(users.slice(indexOfFirstUser, indexOfLastUser));
+    console.log(2);
   };
 
-  useEffect(fetchUsers, []);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+  useEffect(() => {
+    usersInPage();
+  }, []);
 
   return (
     <React.Fragment>
